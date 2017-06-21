@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".administrator_view" />
-        <activity android:name=".new_user_account"></activity>
+        <activity android:name=".new_user_account" />
+        <activity android:name=".BookSearch"></activity>
     </application>
 
 </manifest>
