@@ -276,14 +276,14 @@
         app:layout_constraintVertical_bias="0.769">
 
         <ExpandableListView
-            android:id="@+id/genreList"
+            android:id="@+id/CountryList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:cacheColorHint="@android:color/white"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp"
+            android:drawable="@android:color/white"
             android:state_pressed="true"
-            android:drawable="@android:color/white"/>
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp" />
 
     </LinearLayout>
 
