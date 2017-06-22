@@ -19,7 +19,8 @@
         <activity android:name=".AdminView" />
         <activity android:name=".NewUserAccount" />
         <activity android:name=".BookSearch" />
-        <activity android:name=".SearchResults"></activity>
+        <activity android:name=".SearchResults" />
+        <activity android:name=".ListOfBooksResults"></activity>
     </application>
 
 </manifest>
