@@ -3,7 +3,7 @@ package com.example.anakarinacarrocci.fastcheckoutlibrary;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class new_user_account extends AppCompatActivity {
+public class NewUserAccount extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
