@@ -26,7 +26,7 @@
             android:layout_weight="1"
             android:background="@android:color/white"
             android:backgroundTint="@android:color/holo_blue_bright"
-            android:text="Create a New Adm"
+            android:text="Create New User"
             android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="368dp" />
@@ -72,7 +72,7 @@
             android:layout_weight="1"
             android:background="@android:color/white"
             android:backgroundTint="@android:color/holo_blue_bright"
-            android:text="Insert a new Book"
+            android:text="Insert new Book"
             android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="368dp" />
@@ -95,7 +95,7 @@
             android:layout_weight="1"
             android:background="@android:color/white"
             android:backgroundTint="@android:color/holo_blue_bright"
-            android:text="Insert a new Author"
+            android:text="Insert new Author"
             android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="368dp" />
