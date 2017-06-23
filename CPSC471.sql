@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 21, 2017 at 06:43 AM
+-- Generation Time: Jun 23, 2017 at 02:19 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -42,7 +42,19 @@ CREATE TABLE `AUTHOR` (
 --
 
 INSERT INTO `AUTHOR` (`ID`, `FIRST_NAME`, `LAST_NAME`, `COUNTRY_ID`, `DEATH_STATUS`, `GENDER_ID`) VALUES
-(1, 'Sonny', 'Ng', 15, 0x30, 1);
+(1, 'John', ' Steinbeck', 14, 0x00, 1),
+(2, 'George', 'Orwell', 9, 0x00, 1),
+(3, 'Scott', 'Fitzgerald', 11, 0x30, 1),
+(4, 'J.R.R.', 'Tolkien', 1, 0x31, 1),
+(5, 'Jane', 'Austen', 5, 0x31, 2),
+(6, 'Jennifer', 'Keishin', 3, 0x30, 2),
+(7, 'Mel', 'Brooks', 9, 0x30, 1),
+(8, 'Janet', 'Benton', 6, 0x30, 2),
+(9, 'Estelle', 'Laure', 2, 0x30, 2),
+(10, 'Craig', 'Spector', 7, 0x30, 1),
+(11, 'Robert', 'McCammon', 4, 0x30, 1),
+(12, 'Vincent', 'Bugliosi', 15, 0x00, 1),
+(13, 'Erik ', 'Larson', 8, 0x30, 1);
 
 -- --------------------------------------------------------
 
@@ -65,7 +77,19 @@ CREATE TABLE `BOOK` (
 --
 
 INSERT INTO `BOOK` (`ID`, `NAME`, `AUTHOR_ID`, `PUBLISHER_ID`, `YEAR`, `EDITION`, `GENRE_ID`) VALUES
-(1, 'Frosted Flakes', 1, 1, 2017, 1, 6);
+(1, 'The Grapes of Wrath', 1, 1, 1939, 1, 1),
+(2, 'The Great Gatsby', 3, 1, 1925, 3, 1),
+(3, 'Nineteen Eighty - Four', 2, 4, 1949, 2, 1),
+(4, 'The Lord of the Rings', 4, 9, 1954, 10, 11),
+(5, 'Pride and Perjudice', 5, 12, 1920, 12, 7),
+(6, 'Seinfeldia', 6, 8, NULL, 4, 2),
+(7, 'Young Frankenstein', 7, 2, 2011, 1, 2),
+(8, 'Lilli De Jong', 8, 6, 2017, 1, 3),
+(9, 'But Then I Came Back', 9, 10, 2017, 1, 3),
+(10, 'The Light at the End', 10, 11, 2015, 2, 4),
+(11, 'Swan Song', 11, 10, 2002, 3, 4),
+(12, 'The True Story of the Manson Murders', 12, 8, 2002, 3, 5),
+(13, 'The Devil in the White City', 13, 6, 2003, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -203,7 +227,18 @@ CREATE TABLE `PUBLISHER` (
 --
 
 INSERT INTO `PUBLISHER` (`ID`, `NAME`, `COUNTRY_ID`) VALUES
-(1, 'Real Madrid printing co', 13);
+(1, 'Penguin Random House', 13),
+(2, 'Hachette Livre', 2),
+(3, 'Pan Macmillan', 4),
+(4, 'HarperCollins', 8),
+(5, 'Pearson Education', 10),
+(6, 'Bloomsbury', 14),
+(7, 'SourceBooks', 1),
+(8, 'Chronicle', 3),
+(9, 'B&H Publishing', 7),
+(10, 'Dover', 9),
+(11, 'Abrams', 5),
+(12, 'Tyndale House', 6);
 
 -- --------------------------------------------------------
 
