@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.anakarinacarrocci.fastcheckoutlibrary.AdminView"
-    android:background="@drawable/background_blue"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:context="com.example.anakarinacarrocci.fastcheckoutlibrary.UserSearchMainMenu"
+    android:background="@drawable/background_blue">
 
     <LinearLayout
         android:layout_width="154dp"
@@ -20,13 +18,13 @@
         app:layout_constraintVertical_bias="0.121">
 
         <Button
-            android:id="@+id/buttonNewAdm"
+            android:id="@+id/buttonSearchBook"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/white"
             android:backgroundTint="@android:color/holo_blue_bright"
-            android:text="Create New User"
+            android:text="Search by Book"
             android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="368dp" />
@@ -40,16 +38,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29">
+        app:layout_constraintVertical_bias="0.32">
 
         <Button
-            android:id="@+id/buttonSearchAdm"
+            android:id="@+id/buttonSearchAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/white"
             android:backgroundTint="@android:color/holo_blue_bright"
-            android:text="Search Book"
+            android:text="Search by Author"
             android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="368dp" />
@@ -63,16 +61,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454">
+        app:layout_constraintVertical_bias="0.523">
 
         <Button
-            android:id="@+id/buttonInsertBook"
+            android:id="@+id/buttonSearchPublisher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/white"
             android:backgroundTint="@android:color/holo_blue_bright"
-            android:text="Insert new Book"
+            android:text="Search by Publisher"
             android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="368dp" />
@@ -86,39 +84,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629">
+        app:layout_constraintVertical_bias="0.718">
 
         <Button
-            android:id="@+id/buttonInsertAuthorAdm"
+            android:id="@+id/buttonSearchLibrary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/white"
             android:backgroundTint="@android:color/holo_blue_bright"
-            android:text="Insert new Author"
-            android:textColor="@android:color/white"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="368dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="154dp"
-        android:layout_height="49dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.803">
-
-        <Button
-            android:id="@+id/buttonInsertPublisher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:backgroundTint="@android:color/holo_blue_bright"
-            android:text="Insert New Publisher"
+            android:text="Search by Library"
             android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="368dp" />

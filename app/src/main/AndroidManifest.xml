@@ -18,9 +18,13 @@
         </activity>
         <activity android:name=".AdminView" />
         <activity android:name=".NewUserAccount" />
-        <activity android:name=".BookSearch" />
+        <activity android:name=".SearchByAuthor" />
         <activity android:name=".SearchResults" />
-        <activity android:name=".ListOfBooksResults"></activity>
+        <activity android:name=".ListOfBooksResults" />
+        <activity android:name=".UserSearchMainMenu" />
+        <activity android:name=".SearchByBook" />
+        <activity android:name=".SearchByPublisher" />
+        <activity android:name=".SearchByLibrary"></activity>
     </application>
 
 </manifest>

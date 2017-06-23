@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Fast CheckOut Library</string>
     <string name="title_activity_user_account">UserAccount</string>
+    <string name="title_activity_user_search_main_menu">UserSearchMainMenu</string>
 </resources>
