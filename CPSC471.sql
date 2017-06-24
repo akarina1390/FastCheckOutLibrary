@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 23, 2017 at 02:19 AM
+-- Generation Time: Jun 23, 2017 at 05:26 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -54,7 +54,14 @@ INSERT INTO `AUTHOR` (`ID`, `FIRST_NAME`, `LAST_NAME`, `COUNTRY_ID`, `DEATH_STAT
 (10, 'Craig', 'Spector', 7, 0x30, 1),
 (11, 'Robert', 'McCammon', 4, 0x30, 1),
 (12, 'Vincent', 'Bugliosi', 15, 0x00, 1),
-(13, 'Erik ', 'Larson', 8, 0x30, 1);
+(13, 'Erik ', 'Larson', 8, 0x30, 1),
+(14, 'John', 'Green', 13, 0x30, 1),
+(15, 'Laurie', 'Halse', 11, 0x30, 2),
+(16, 'Sandhya', 'Menon', 12, 0x00, 2),
+(17, 'Andrew', 'Shvarts', 10, 0x00, 1),
+(18, 'George', 'Orwell', 1, 0x01, 1),
+(19, 'Joseph', 'Heller', 2, 0x00, 1),
+(20, 'William', 'Shakespeare', 7, 0x01, 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +96,15 @@ INSERT INTO `BOOK` (`ID`, `NAME`, `AUTHOR_ID`, `PUBLISHER_ID`, `YEAR`, `EDITION`
 (10, 'The Light at the End', 10, 11, 2015, 2, 4),
 (11, 'Swan Song', 11, 10, 2002, 3, 4),
 (12, 'The True Story of the Manson Murders', 12, 8, 2002, 3, 5),
-(13, 'The Devil in the White City', 13, 6, 2003, 3, 5);
+(13, 'The Devil in the White City', 13, 6, 2003, 3, 5),
+(14, 'The Fault in Our Starts', 14, 9, 2015, 2, 6),
+(15, 'Speak', 15, 4, 2015, 2, 6),
+(16, 'When Dimple Met Rishi', 16, 7, 2001, 6, 7),
+(17, 'Royal Bastards', 17, 1, 1990, 2, 7),
+(18, 'Animal Farm', 18, 12, 1945, 3, 8),
+(19, 'Catch-22', 19, 11, 1961, 2, 8),
+(20, 'Romeo and Juliet', 20, 10, 1595, 10, 9),
+(21, 'Hamlet', 20, 10, 1600, 12, 9);
 
 -- --------------------------------------------------------
 
