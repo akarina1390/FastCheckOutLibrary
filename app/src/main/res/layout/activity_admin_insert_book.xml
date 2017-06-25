@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fastcheckoutlibrary.backend.AdminInsertBook"
+    android:background="@drawable/background_blue">
+
+    <LinearLayout
+        android:layout_width="201dp"
+        android:layout_height="22dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.032">
+
+        <TextView
+            android:id="@+id/textViewInsertNewBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Insert Book:"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="135dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="85dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.121">
+
+        <TextView
+            android:id="@+id/textViewInsertNewBookPublisher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Book Name"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="135dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="234dp"
+        android:layout_height="58dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.123">
+
+        <EditText
+            android:id="@+id/editTextSearchInputBookName"
+            android:layout_width="230dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/white"
+            android:inputType="textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine"
+            android:singleLine="false"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/white"
+            tools:layout_editor_absoluteX="129dp"
+            tools:layout_editor_absoluteY="283dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="85dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.285">
+
+        <TextView
+            android:id="@+id/textViewInsertPublisher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Publisher"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="135dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="234dp"
+        android:layout_height="58dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.291">
+
+        <EditText
+            android:id="@+id/editTextInsertInputBookName"
+            android:layout_width="230dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/white"
+            android:inputType="textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine"
+            android:singleLine="false"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/white"
+            tools:layout_editor_absoluteX="129dp"
+            tools:layout_editor_absoluteY="283dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="85dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.448">
+
+        <TextView
+            android:id="@+id/textViewInsertYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Year"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="135dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="234dp"
+        android:layout_height="58dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.456">
+
+        <EditText
+            android:id="@+id/editTextInsertYear"
+            android:layout_width="230dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/white"
+            android:inputType="textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine"
+            android:singleLine="false"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/white"
+            tools:layout_editor_absoluteX="129dp"
+            tools:layout_editor_absoluteY="283dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="85dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.621">
+
+        <TextView
+            android:id="@+id/textViewInsertEdition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Edition"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="135dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="234dp"
+        android:layout_height="58dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.633">
+
+        <EditText
+            android:id="@+id/editTextInsertInputYear"
+            android:layout_width="230dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/white"
+            android:inputType="textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine"
+            android:singleLine="false"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/white"
+            tools:layout_editor_absoluteX="129dp"
+            tools:layout_editor_absoluteY="283dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="85dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.779">
+
+        <TextView
+            android:id="@+id/textViewInsertGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Genre"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="135dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="234dp"
+        android:layout_height="58dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.794">
+
+        <ExpandableListView
+            android:id="@+id/InsertGenreList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/white"
+            android:drawable="@android:color/white"
+            android:state_pressed="true"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="154dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.939">
+
+        <Button
+            android:id="@+id/buttonInsertBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:backgroundTint="@android:color/holo_blue_bright"
+            android:text="INSERT BOOK"
+            android:textColor="@android:color/white"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="368dp" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

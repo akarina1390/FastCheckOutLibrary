@@ -27,7 +27,10 @@
         <activity android:name="com.fastcheckoutlibrary.backend.UserSearchMainMenu" />
         <activity android:name="com.fastcheckoutlibrary.backend.SearchByBook" />
         <activity android:name="com.fastcheckoutlibrary.backend.SearchByPublisher" />
-        <activity android:name="com.fastcheckoutlibrary.backend.SearchByLibrary"></activity>
+        <activity android:name="com.fastcheckoutlibrary.backend.SearchByLibrary" />
+        <activity android:name="com.fastcheckoutlibrary.backend.AdminInsertBook" />
+        <activity android:name="com.fastcheckoutlibrary.backend.AdminInsertAuthor" />
+        <activity android:name="com.fastcheckoutlibrary.backend.AdminInsertPublisher"></activity>
     </application>
 
 </manifest>

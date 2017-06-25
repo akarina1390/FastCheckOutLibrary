@@ -35,8 +35,13 @@ public class NewUserAccount extends AppCompatActivity {
     private Button newUser;
     Context ctx = this;
     private boolean INSERTED;
+    private static int _userPrivilege;
 
     private String newUserValue, newPasswordValue, newEmailValue, newCountryValue, newGenderValue;
+
+    public static void setUserPrivilege(int userPrivilege) {
+        _userPrivilege = userPrivilege;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +93,7 @@ public class NewUserAccount extends AppCompatActivity {
                 urlpath += "&email=" + email;
                 urlpath += "&country=" + country;
                 urlpath += "&gender=" + gender;
+                urlpath += "&privilege=" + String.valueOf(_userPrivilege);
                 URL url = new URL(urlpath);
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
