@@ -3,11 +3,8 @@ package com.example.anakarinacarrocci.fastcheckoutlibrary;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,7 +34,19 @@ public class MainActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.editTextUserNameInput);
         password = (EditText) findViewById(R.id.editTextPasswordInput);
         login = (Button) findViewById(R.id.buttonSignIn);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setLogin(v);
+            }
+        });
         createUser = (Button) findViewById(R.id.buttonNewUser);
+        createUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     public void setLogin(View v) {
@@ -56,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
             int tmp;
 
             try {
-                URL url = new URL("http://192.168.0.0:8080/CPSC471/FastCheckOutLibrary/login.php");
-                String urlParams = "username" + userName + "&password";
+                URL url = new URL("http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/login.php");
+                String urlParams = "username=" + userName + "&password=" + password;
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setDoOutput(true);
@@ -68,13 +77,13 @@ public class MainActivity extends AppCompatActivity {
                 outputStream.close();
 
                 InputStream inputStream = httpURLConnection.getInputStream();
-                while((tmp = inputStream.read()) != -1) {
+                while ((tmp = inputStream.read()) != -1) {
                     data += (char) tmp;
                 }
                 inputStream.close();
                 httpURLConnection.disconnect();
 
-                return  data;
+                return data;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
                 return "Exception login into server";
@@ -85,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute (String result) {
+        protected void onPostExecute(String result) {
             String err = null;
             try {
                 JSONObject root = new JSONObject(result);
@@ -110,22 +119,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(ctx, "Error Login", Toast.LENGTH_SHORT).show();
             }
         }
-
-        Button signIn = (Button) findViewById(R.id.buttonSignIn);
-        signIn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), UserSearchMainMenu.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
-
-        Button userRegister = (Button) findViewById(R.id.buttonNewUser);
-        signIn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), NewUserAccount.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
     }
 
 }
