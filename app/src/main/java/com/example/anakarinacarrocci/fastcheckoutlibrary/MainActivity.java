@@ -3,11 +3,8 @@ package com.example.anakarinacarrocci.fastcheckoutlibrary;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,19 +34,17 @@ public class MainActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.editTextUserNameInput);
         password = (EditText) findViewById(R.id.editTextPasswordInput);
         login = (Button) findViewById(R.id.buttonSignIn);
-        createUser = (Button) findViewById(R.id.buttonNewUser);
-
         login.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), UserSearchMainMenu.class);
-                startActivityForResult(myIntent, 0);
+            @Override
+            public void onClick(View v) {
+                setLogin(v);
             }
         });
-
+        createUser = (Button) findViewById(R.id.buttonNewUser);
         createUser.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), NewUserAccount.class);
-                startActivityForResult(myIntent, 0);
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
@@ -61,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         b.execute(usernameValue, passwordValue);
     }
 
-    private class Background extends AsyncTask<String, String, String> {
+    class Background extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... params) {
             String userName = params[0];
@@ -70,25 +65,26 @@ public class MainActivity extends AppCompatActivity {
             int tmp;
 
             try {
-                URL url = new URL("http://192.168.0.0:8080/CPSC471/FastCheckOutLibrary/login.php");
-                String urlParams = "username" + userName + "&password";
+                String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/login.php?";
+                urlpath += "username=" + userName;
+                urlpath += "&password=" + password;
+                URL url = new URL(urlpath);
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setDoOutput(true);
 
                 OutputStream outputStream = httpURLConnection.getOutputStream();
-                outputStream.write(urlParams.getBytes());
                 outputStream.flush();
                 outputStream.close();
 
                 InputStream inputStream = httpURLConnection.getInputStream();
-                while((tmp = inputStream.read()) != -1) {
+                while ((tmp = inputStream.read()) != -1) {
                     data += (char) tmp;
                 }
                 inputStream.close();
                 httpURLConnection.disconnect();
 
-                return  data;
+                return data;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
                 return "Exception login into server";
@@ -99,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute (String result) {
+        protected void onPostExecute(String result) {
             String err = null;
             try {
                 JSONObject root = new JSONObject(result);
@@ -111,26 +107,24 @@ public class MainActivity extends AppCompatActivity {
                 err = "Exception obtaining database result";
             }
 
-            switch (PRIVILEDGE_ID) {
-                case "1": {
+            if (err == null) {
+                if (PRIVILEDGE_ID.equals("1")) {
                     Intent intent = new Intent(ctx, AdminView.class);
                     //intent.putExtra("ID", ID);
                     startActivity(intent);
-                    break;
-                }
-                case "2": {
+                } else if (PRIVILEDGE_ID.equals("2")) {
                     Intent intent = new Intent(ctx, AdminView.class);
                     //Intent intent = new Intent(ctx, UserView.class);
                     //intent.putExtra("ID", ID);
                     startActivity(intent);
-                    break;
+                } else {
+                    Toast.makeText(ctx, "Error Login in", Toast.LENGTH_SHORT).show();
                 }
-                default:
-                    Toast.makeText(ctx, "Error Login", Toast.LENGTH_SHORT).show();
-                    break;
+            }
+            else {
+                Toast.makeText(ctx, "Error Login in", Toast.LENGTH_SHORT).show();
             }
         }
     }
-
 
 }
