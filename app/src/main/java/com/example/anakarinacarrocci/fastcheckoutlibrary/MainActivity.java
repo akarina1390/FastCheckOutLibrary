@@ -65,14 +65,15 @@ public class MainActivity extends AppCompatActivity {
             int tmp;
 
             try {
-                URL url = new URL("http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/login.php");
-                String urlParams = "username=" + userName + "&password=" + password;
+                String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/login.php?";
+                urlpath += "username=" + userName;
+                urlpath += "&password=" + password;
+                URL url = new URL(urlpath);
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setDoOutput(true);
 
                 OutputStream outputStream = httpURLConnection.getOutputStream();
-                outputStream.write(urlParams.getBytes());
                 outputStream.flush();
                 outputStream.close();
 
@@ -106,17 +107,22 @@ public class MainActivity extends AppCompatActivity {
                 err = "Exception obtaining database result";
             }
 
-            if (PRIVILEDGE_ID.equals("1")) {
-                Intent intent = new Intent(ctx, AdminView.class);
-                //intent.putExtra("ID", ID);
-                startActivity(intent);
-            } else if (PRIVILEDGE_ID.equals("2")) {
-                Intent intent = new Intent(ctx, AdminView.class);
-                //Intent intent = new Intent(ctx, UserView.class);
-                //intent.putExtra("ID", ID);
-                startActivity(intent);
-            } else {
-                Toast.makeText(ctx, "Error Login", Toast.LENGTH_SHORT).show();
+            if (err == null) {
+                if (PRIVILEDGE_ID.equals("1")) {
+                    Intent intent = new Intent(ctx, AdminView.class);
+                    //intent.putExtra("ID", ID);
+                    startActivity(intent);
+                } else if (PRIVILEDGE_ID.equals("2")) {
+                    Intent intent = new Intent(ctx, AdminView.class);
+                    //Intent intent = new Intent(ctx, UserView.class);
+                    //intent.putExtra("ID", ID);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(ctx, "Error Login in", Toast.LENGTH_SHORT).show();
+                }
+            }
+            else {
+                Toast.makeText(ctx, "Error Login in", Toast.LENGTH_SHORT).show();
             }
         }
     }
