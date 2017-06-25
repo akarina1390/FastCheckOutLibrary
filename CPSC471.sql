@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 23, 2017 at 05:26 AM
+-- Generation Time: Jun 25, 2017 at 08:25 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -109,6 +109,24 @@ INSERT INTO `BOOK` (`ID`, `NAME`, `AUTHOR_ID`, `PUBLISHER_ID`, `YEAR`, `EDITION`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `BOOK_LIBRARY_XREF`
+--
+
+CREATE TABLE `BOOK_LIBRARY_XREF` (
+  `BOOK_ID` int(100) NOT NULL,
+  `LIBRARY_ID` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `BOOK_LIBRARY_XREF`
+--
+
+INSERT INTO `BOOK_LIBRARY_XREF` (`BOOK_ID`, `LIBRARY_ID`) VALUES
+(1, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `BOOK_USER_XREF`
 --
 
@@ -146,8 +164,8 @@ INSERT INTO `COUNTRY` (`ID`, `NAME`) VALUES
 (2, 'Brazil'),
 (3, 'Canada'),
 (4, 'Colombia'),
-(5, 'Dominican Republic'),
-(6, 'Denmark'),
+(5, 'Denmark'),
+(6, 'Dominican Republic'),
 (7, 'England'),
 (8, 'Germany'),
 (9, 'Italy'),
@@ -209,6 +227,26 @@ INSERT INTO `GENRE` (`ID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `LIBRARY`
+--
+
+CREATE TABLE `LIBRARY` (
+  `ID` int(100) NOT NULL,
+  `NAME` varchar(55) NOT NULL,
+  `COUNTRY_ID` int(100) NOT NULL,
+  `ADDRESS` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `LIBRARY`
+--
+
+INSERT INTO `LIBRARY` (`ID`, `NAME`, `COUNTRY_ID`, `ADDRESS`) VALUES
+(1, 'Calgary Public Library', 3, 'Auburn Meadows');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `PRIVILEDGE`
 --
 
@@ -266,19 +304,18 @@ CREATE TABLE `USER_CONF` (
   `USER_NAME` varchar(50) NOT NULL,
   `PASSWORD` varchar(50) NOT NULL,
   `PRIVILEDGE_ID` int(1) NOT NULL,
-  `FIRST_NAME` varchar(55) NOT NULL,
-  `LAST_NAME` varchar(55) NOT NULL,
   `EMAIL` varchar(55) DEFAULT NULL,
-  `COUNTRY_ID` int(100) NOT NULL
+  `COUNTRY_ID` int(100) NOT NULL,
+  `GENDER_ID` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `USER_CONF`
 --
 
-INSERT INTO `USER_CONF` (`ID`, `USER_NAME`, `PASSWORD`, `PRIVILEDGE_ID`, `FIRST_NAME`, `LAST_NAME`, `EMAIL`, `COUNTRY_ID`) VALUES
-(1, 'anaka', '123456', 1, 'Ana', 'Carrocci', 'akarina1390@gmail.com', 15),
-(2, 'alegar', '123456', 2, 'Alejandro', 'Sieu', 'ale.sieu@ucalgary.ca', 3);
+INSERT INTO `USER_CONF` (`ID`, `USER_NAME`, `PASSWORD`, `PRIVILEDGE_ID`, `EMAIL`, `COUNTRY_ID`, `GENDER_ID`) VALUES
+(1, 'anaka', '123456', 1, 'akarina1390@gmail.com', 15, 2),
+(2, 'alegar', '123456', 2, 'ale.sieu@ucalgary.ca', 3, 1);
 
 --
 -- Indexes for dumped tables
@@ -300,6 +337,13 @@ ALTER TABLE `BOOK`
   ADD KEY `AUTHOR_ID` (`AUTHOR_ID`),
   ADD KEY `PUBLISHER_ID` (`PUBLISHER_ID`),
   ADD KEY `GENRE_ID` (`GENRE_ID`);
+
+--
+-- Indexes for table `BOOK_LIBRARY_XREF`
+--
+ALTER TABLE `BOOK_LIBRARY_XREF`
+  ADD KEY `BOOK_ID` (`BOOK_ID`),
+  ADD KEY `LIBRARY_ID` (`LIBRARY_ID`);
 
 --
 -- Indexes for table `BOOK_USER_XREF`
@@ -327,6 +371,13 @@ ALTER TABLE `GENRE`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `LIBRARY`
+--
+ALTER TABLE `LIBRARY`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `COUNTRY_ID` (`COUNTRY_ID`);
+
+--
 -- Indexes for table `PRIVILEDGE`
 --
 ALTER TABLE `PRIVILEDGE`
@@ -347,7 +398,8 @@ ALTER TABLE `USER_CONF`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `USER_NAME` (`USER_NAME`),
   ADD KEY `PRIVILEDGE_ID` (`PRIVILEDGE_ID`),
-  ADD KEY `COUNTRY_ID` (`COUNTRY_ID`);
+  ADD KEY `COUNTRY_ID` (`COUNTRY_ID`),
+  ADD KEY `GENDER_ID` (`GENDER_ID`);
 
 --
 -- Constraints for dumped tables
@@ -369,6 +421,13 @@ ALTER TABLE `BOOK`
   ADD CONSTRAINT `book_ibfk_3` FOREIGN KEY (`GENRE_ID`) REFERENCES `GENRE` (`ID`);
 
 --
+-- Constraints for table `BOOK_LIBRARY_XREF`
+--
+ALTER TABLE `BOOK_LIBRARY_XREF`
+  ADD CONSTRAINT `book_library_xref_ibfk_1` FOREIGN KEY (`BOOK_ID`) REFERENCES `BOOK` (`ID`),
+  ADD CONSTRAINT `book_library_xref_ibfk_2` FOREIGN KEY (`LIBRARY_ID`) REFERENCES `LIBRARY` (`ID`);
+
+--
 -- Constraints for table `BOOK_USER_XREF`
 --
 ALTER TABLE `BOOK_USER_XREF`
@@ -376,11 +435,18 @@ ALTER TABLE `BOOK_USER_XREF`
   ADD CONSTRAINT `book_user_xref_ibfk_2` FOREIGN KEY (`USER_ID`) REFERENCES `USER_CONF` (`ID`);
 
 --
+-- Constraints for table `LIBRARY`
+--
+ALTER TABLE `LIBRARY`
+  ADD CONSTRAINT `library_ibfk_1` FOREIGN KEY (`COUNTRY_ID`) REFERENCES `COUNTRY` (`ID`);
+
+--
 -- Constraints for table `USER_CONF`
 --
 ALTER TABLE `USER_CONF`
   ADD CONSTRAINT `user_conf_ibfk_1` FOREIGN KEY (`PRIVILEDGE_ID`) REFERENCES `PRIVILEDGE` (`ID`),
-  ADD CONSTRAINT `user_conf_ibfk_2` FOREIGN KEY (`COUNTRY_ID`) REFERENCES `COUNTRY` (`ID`);
+  ADD CONSTRAINT `user_conf_ibfk_2` FOREIGN KEY (`COUNTRY_ID`) REFERENCES `COUNTRY` (`ID`),
+  ADD CONSTRAINT `user_conf_ibfk_3` FOREIGN KEY (`GENDER_ID`) REFERENCES `GENDER` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
