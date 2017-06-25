@@ -1,4 +1,4 @@
-package com.example.anakarinacarrocci.fastcheckoutlibrary;
+package com.fastcheckoutlibrary.backend;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -20,6 +20,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
 
 public class SearchByAuthor extends AppCompatActivity {
 

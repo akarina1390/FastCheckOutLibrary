@@ -11,7 +11,7 @@
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:background="@drawable/background_blue"
-           tools:context="com.example.anakarinacarrocci.fastcheckoutlibrary.MainActivity"
+           tools:context="com.example.anakarinacarrocci.fastcheckoutlibrary.com.fastcheckoutlibrary.backend.MainActivity"
            tools:layout_editor_absoluteX="0dp"
            tools:layout_editor_absoluteY="73dp">
 
@@ -200,6 +200,10 @@
                app:layout_constraintTop_toTopOf="parent"
                app:layout_constraintVertical_bias="0.617">
 
+               <RadioGroup
+                   android:id="@+id/radioGroupNewGender"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
                <RadioButton
                    android:id="@+id/radioButtonM"
                    android:layout_width="368dp"
@@ -225,6 +229,7 @@
                    android:textStyle="bold"
                    tools:layout_editor_absoluteX="8dp"
                    tools:layout_editor_absoluteY="577dp" />
+               </RadioGroup>
            </LinearLayout>
 
            <LinearLayout
@@ -262,17 +267,15 @@
                app:layout_constraintTop_toTopOf="parent"
                app:layout_constraintVertical_bias="0.755">
 
-               <EditText
+               <Spinner
                    android:id="@+id/editTextNewUserCountry"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
-                   android:backgroundTint="@android:color/white"
-                   android:ems="10"
-                   android:inputType="textPersonName"
-                   android:textColor="@android:color/white"
+                   android:entries="@array/country_arrays"
+                   android:prompt="@string/country_prompt"
                    tools:layout_editor_absoluteX="61dp"
-                   tools:layout_editor_absoluteY="180dp" />
+                   tools:layout_editor_absoluteY="180dp"/>
            </LinearLayout>
 
            <LinearLayout

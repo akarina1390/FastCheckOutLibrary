@@ -12,22 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.fastcheckoutlibrary.backend.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AdminView" />
-        <activity android:name=".NewUserAccount" />
-        <activity android:name=".SearchByAuthor" />
-        <activity android:name=".SearchResults" />
-        <activity android:name=".ListOfBooksResults" />
-        <activity android:name=".UserSearchMainMenu" />
-        <activity android:name=".SearchByBook" />
-        <activity android:name=".SearchByPublisher" />
-        <activity android:name=".SearchByLibrary"></activity>
+        <activity android:name="com.fastcheckoutlibrary.backend.AdminView" />
+        <activity android:name="com.fastcheckoutlibrary.backend.NewUserAccount" />
+        <activity android:name="com.fastcheckoutlibrary.backend.SearchByAuthor" />
+        <activity android:name="com.fastcheckoutlibrary.backend.SearchResults" />
+        <activity android:name="com.fastcheckoutlibrary.backend.ListOfBooksResults" />
+        <activity android:name="com.fastcheckoutlibrary.backend.UserSearchMainMenu" />
+        <activity android:name="com.fastcheckoutlibrary.backend.SearchByBook" />
+        <activity android:name="com.fastcheckoutlibrary.backend.SearchByPublisher" />
+        <activity android:name="com.fastcheckoutlibrary.backend.SearchByLibrary"></activity>
     </application>
 
 </manifest>
