@@ -38,6 +38,20 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.editTextPasswordInput);
         login = (Button) findViewById(R.id.buttonSignIn);
         createUser = (Button) findViewById(R.id.buttonNewUser);
+
+        login.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), UserSearchMainMenu.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
+        createUser.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), NewUserAccount.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
     }
 
     public void setLogin(View v) {
@@ -47,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         b.execute(usernameValue, passwordValue);
     }
 
-    class Background extends AsyncTask<String, String, String> {
+    private class Background extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... params) {
             String userName = params[0];
@@ -97,35 +111,26 @@ public class MainActivity extends AppCompatActivity {
                 err = "Exception obtaining database result";
             }
 
-            if (PRIVILEDGE_ID.equals("1")) {
-                Intent intent = new Intent(ctx, AdminView.class);
-                //intent.putExtra("ID", ID);
-                startActivity(intent);
-            } else if (PRIVILEDGE_ID.equals("2")) {
-                Intent intent = new Intent(ctx, AdminView.class);
-                //Intent intent = new Intent(ctx, UserView.class);
-                //intent.putExtra("ID", ID);
-                startActivity(intent);
-            } else {
-                Toast.makeText(ctx, "Error Login", Toast.LENGTH_SHORT).show();
+            switch (PRIVILEDGE_ID) {
+                case "1": {
+                    Intent intent = new Intent(ctx, AdminView.class);
+                    //intent.putExtra("ID", ID);
+                    startActivity(intent);
+                    break;
+                }
+                case "2": {
+                    Intent intent = new Intent(ctx, AdminView.class);
+                    //Intent intent = new Intent(ctx, UserView.class);
+                    //intent.putExtra("ID", ID);
+                    startActivity(intent);
+                    break;
+                }
+                default:
+                    Toast.makeText(ctx, "Error Login", Toast.LENGTH_SHORT).show();
+                    break;
             }
         }
-
-        Button signIn = (Button) findViewById(R.id.buttonSignIn);
-        signIn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), UserSearchMainMenu.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
-
-        Button userRegister = (Button) findViewById(R.id.buttonNewUser);
-        signIn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), NewUserAccount.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
     }
+
 
 }
