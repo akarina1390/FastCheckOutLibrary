@@ -12,7 +12,7 @@ public enum GenreTypeCode {
     TRAGEDY (9, "Tragedy"),
     TRAGICOMEDY (10, "Tragicomedy"),
     FANTASY (11, "Fantasy"),
-    MYTHODOLOGY (12, "Mythodology");
+    MYTHOLOGY (12, "Mythology");
 
     private int _id;
     private String _description;

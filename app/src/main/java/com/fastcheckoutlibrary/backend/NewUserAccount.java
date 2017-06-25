@@ -54,7 +54,7 @@ public class NewUserAccount extends AppCompatActivity {
         newRadioGroup = (RadioGroup) findViewById(R.id.radioGroupNewGender);
         newMale = (RadioButton) findViewById(R.id.radioButtonM);
         newFemale = (RadioButton) findViewById(R.id.radioButtonF);
-        newCountry = (Spinner) findViewById(R.id.editTextNewUserCountry);
+        newCountry = (Spinner) findViewById(R.id.spinnerNewUserCountry);
         newUser = (Button) findViewById(R.id.buttonNewUser);
         newUser.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -22,4 +22,20 @@
         <item>Venezuela</item>
     </string-array>
 
+    <string name="genre_prompt">Choose a Book Genre</string>
+    <string-array name="genre_arrays">
+        <item>Fiction</item>
+        <item>Comedy</item>
+        <item>Drama</item>
+        <item>Horror</item>
+        <item>Non Fiction</item>
+        <item>Realistic</item>
+        <item>Romantic</item>
+        <item>Satire</item>
+        <item>Tragedy</item>
+        <item>Tragicomedy</item>
+        <item>Fantasy</item>
+        <item>Mythology</item>
+    </string-array>
+
 </resources>

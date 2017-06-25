@@ -276,6 +276,16 @@
             android:state_pressed="true"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerNewBookGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/genre_arrays"
+            android:prompt="@string/genre_prompt"
+            tools:layout_editor_absoluteX="61dp"
+            tools:layout_editor_absoluteY="180dp"/>
     </LinearLayout>
 
     <LinearLayout
