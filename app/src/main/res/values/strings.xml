@@ -38,4 +38,9 @@
         <item>Mythology</item>
     </string-array>
 
+    <string name="library_prompt">Choose a Library</string>
+    <string-array name="library_arrays">
+        <item>Calgary Public Library - Auburn Bay</item>
+    </string-array>
+
 </resources>

@@ -87,7 +87,7 @@ public class NewUserAccount extends AppCompatActivity {
             int tmp;
 
             try {
-                String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/createNewUser.php?";
+                String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/insertNewUser.php?";
                 urlpath += "username=" + userName;
                 urlpath += "&password=" + password;
                 urlpath += "&email=" + email;
@@ -122,25 +122,15 @@ public class NewUserAccount extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            String err = null;
-            try {
-                JSONObject root = new JSONObject(result);
-                JSONObject user_data = root.getJSONObject("user_data");
-                INSERTED = user_data.getBoolean("inserted");
-            } catch (JSONException e) {
-                e.printStackTrace();
-                err = "Exception obtaining database result";
+            if (result == "") {
+                INSERTED = true;
+            } else {
+                INSERTED = false;
             }
-
-            if (err == null) {
-                if (INSERTED) {
-                    Intent intent = new Intent(ctx, AdminView.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(ctx, "Error Inserting New User", Toast.LENGTH_SHORT).show();
-                }
-            }
-            else {
+            if (INSERTED) {
+                Intent intent = new Intent(ctx, AdminView.class);
+                startActivity(intent);
+            } else {
                 Toast.makeText(ctx, "Error Inserting New User", Toast.LENGTH_SHORT).show();
             }
         }

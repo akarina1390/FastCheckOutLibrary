@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 25, 2017 at 08:25 AM
+-- Generation Time: Jun 25, 2017 at 11:47 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -33,7 +33,6 @@ CREATE TABLE `AUTHOR` (
   `FIRST_NAME` varchar(55) NOT NULL,
   `LAST_NAME` varchar(55) NOT NULL,
   `COUNTRY_ID` int(100) NOT NULL,
-  `DEATH_STATUS` binary(1) DEFAULT NULL,
   `GENDER_ID` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -41,27 +40,27 @@ CREATE TABLE `AUTHOR` (
 -- Dumping data for table `AUTHOR`
 --
 
-INSERT INTO `AUTHOR` (`ID`, `FIRST_NAME`, `LAST_NAME`, `COUNTRY_ID`, `DEATH_STATUS`, `GENDER_ID`) VALUES
-(1, 'John', ' Steinbeck', 14, 0x00, 1),
-(2, 'George', 'Orwell', 9, 0x00, 1),
-(3, 'Scott', 'Fitzgerald', 11, 0x30, 1),
-(4, 'J.R.R.', 'Tolkien', 1, 0x31, 1),
-(5, 'Jane', 'Austen', 5, 0x31, 2),
-(6, 'Jennifer', 'Keishin', 3, 0x30, 2),
-(7, 'Mel', 'Brooks', 9, 0x30, 1),
-(8, 'Janet', 'Benton', 6, 0x30, 2),
-(9, 'Estelle', 'Laure', 2, 0x30, 2),
-(10, 'Craig', 'Spector', 7, 0x30, 1),
-(11, 'Robert', 'McCammon', 4, 0x30, 1),
-(12, 'Vincent', 'Bugliosi', 15, 0x00, 1),
-(13, 'Erik ', 'Larson', 8, 0x30, 1),
-(14, 'John', 'Green', 13, 0x30, 1),
-(15, 'Laurie', 'Halse', 11, 0x30, 2),
-(16, 'Sandhya', 'Menon', 12, 0x00, 2),
-(17, 'Andrew', 'Shvarts', 10, 0x00, 1),
-(18, 'George', 'Orwell', 1, 0x01, 1),
-(19, 'Joseph', 'Heller', 2, 0x00, 1),
-(20, 'William', 'Shakespeare', 7, 0x01, 1);
+INSERT INTO `AUTHOR` (`ID`, `FIRST_NAME`, `LAST_NAME`, `COUNTRY_ID`, `GENDER_ID`) VALUES
+(1, 'John', ' Steinbeck', 14, 1),
+(2, 'George', 'Orwell', 9, 1),
+(3, 'Scott', 'Fitzgerald', 11, 1),
+(4, 'J.R.R.', 'Tolkien', 1, 1),
+(5, 'Jane', 'Austen', 5, 2),
+(6, 'Jennifer', 'Keishin', 3, 2),
+(7, 'Mel', 'Brooks', 9, 1),
+(8, 'Janet', 'Benton', 6, 2),
+(9, 'Estelle', 'Laure', 2, 2),
+(10, 'Craig', 'Spector', 7, 1),
+(11, 'Robert', 'McCammon', 4, 1),
+(12, 'Vincent', 'Bugliosi', 15, 1),
+(13, 'Erik ', 'Larson', 8, 1),
+(14, 'John', 'Green', 13, 1),
+(15, 'Laurie', 'Halse', 11, 2),
+(16, 'Sandhya', 'Menon', 12, 2),
+(17, 'Andrew', 'Shvarts', 10, 1),
+(18, 'George', 'Orwell', 1, 1),
+(19, 'Joseph', 'Heller', 2, 1),
+(20, 'William', 'Shakespeare', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -401,6 +400,55 @@ ALTER TABLE `USER_CONF`
   ADD KEY `COUNTRY_ID` (`COUNTRY_ID`),
   ADD KEY `GENDER_ID` (`GENDER_ID`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `AUTHOR`
+--
+ALTER TABLE `AUTHOR`
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `BOOK`
+--
+ALTER TABLE `BOOK`
+  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `COUNTRY`
+--
+ALTER TABLE `COUNTRY`
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `GENDER`
+--
+ALTER TABLE `GENDER`
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `GENRE`
+--
+ALTER TABLE `GENRE`
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `LIBRARY`
+--
+ALTER TABLE `LIBRARY`
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `PRIVILEDGE`
+--
+ALTER TABLE `PRIVILEDGE`
+  MODIFY `ID` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `PUBLISHER`
+--
+ALTER TABLE `PUBLISHER`
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `USER_CONF`
+--
+ALTER TABLE `USER_CONF`
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --

@@ -42,7 +42,7 @@ public class SearchByPublisher extends AppCompatActivity {
         setContentView(R.layout.activity_search_by_publisher);
 
         newName = (EditText) findViewById(R.id.editTextSearchInputPublisherName);
-        newCountry = (Spinner) findViewById(R.id.editTextNewUserCountry);
+        newCountry = (Spinner) findViewById(R.id.editCountry);
 
         newSearch = (Button) findViewById(R.id.buttonSearchPublisher);
         newSearch.setOnClickListener(new View.OnClickListener() {
