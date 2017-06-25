@@ -1,7 +1,9 @@
-package com.example.anakarinacarrocci.fastcheckoutlibrary;
+package com.fastcheckoutlibrary.backend;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
 
 public class SearchByAuthor extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.anakarinacarrocci.fastcheckoutlibrary;
+package com.fastcheckoutlibrary.backend;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         createUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(ctx, NewUserAccount.class);
+                startActivity(intent);
             }
         });
     }

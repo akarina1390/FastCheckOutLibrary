@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.anakarinacarrocci.fastcheckoutlibrary.ListOfBooksResults"
+    tools:context="com.example.anakarinacarrocci.fastcheckoutlibrary.com.fastcheckoutlibrary.backend.ListOfBooksResults"
     android:background="@drawable/background_blue">
 
     <LinearLayout
