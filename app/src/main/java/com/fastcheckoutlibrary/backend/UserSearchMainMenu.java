@@ -18,7 +18,7 @@ public class UserSearchMainMenu extends AppCompatActivity {
         Button searchBook = (Button) findViewById(R.id.buttonSearchBook);
         searchBook.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), UserSearchMainMenu.class);
+                Intent myIntent = new Intent(view.getContext(), SearchByBook.class);
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -26,7 +26,7 @@ public class UserSearchMainMenu extends AppCompatActivity {
         Button searchAuthor = (Button) findViewById(R.id.buttonSearchAuthor);
         searchAuthor.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), NewUserAccount.class);
+                Intent myIntent = new Intent(view.getContext(), SearchByAuthor.class);
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -34,7 +34,7 @@ public class UserSearchMainMenu extends AppCompatActivity {
         Button searchPublisher = (Button) findViewById(R.id.buttonSearchPublisher);
         searchPublisher.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), UserSearchMainMenu.class);
+                Intent myIntent = new Intent(view.getContext(), SearchByPublisher.class);
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -42,7 +42,7 @@ public class UserSearchMainMenu extends AppCompatActivity {
         Button searchLibrary = (Button) findViewById(R.id.buttonSearchLibrary);
         searchLibrary.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), NewUserAccount.class);
+                Intent myIntent = new Intent(view.getContext(), SearchByLibrary.class);
                 startActivityForResult(myIntent, 0);
             }
         });

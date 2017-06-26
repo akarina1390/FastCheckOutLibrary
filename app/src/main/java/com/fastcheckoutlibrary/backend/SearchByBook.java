@@ -39,7 +39,7 @@ public class SearchByBook extends AppCompatActivity {
         bookPublisher = (EditText) findViewById(R.id.editTextSearchInputPublisher);
         bookYear = (EditText) findViewById(R.id.editTextSearchYear);
         bookEdition = (EditText) findViewById(R.id.editTextSearchInputYear);
-        bookGenre = (Spinner) findViewById(R.id.GenreList);
+        bookGenre = (Spinner) findViewById(R.id.spinnerSearchByBookGenreList);
 
         buttonSearchBook.setOnClickListener(new View.OnClickListener() {
             @Override
