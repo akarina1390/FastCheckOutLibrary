@@ -1,7 +1,7 @@
 package com.fastcheckoutlibrary.typecode;
 
 public enum LibraryTypeCode {
-    CALGARY_PUBLIC(1, "Calgary Public Library - Auburn Meadows");
+    CALGARY_PUBLIC(1, "Calgary Public Library - Auburn Bay");
 
     private int _id;
     private String _description;
