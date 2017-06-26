@@ -3,24 +3,17 @@ package com.fastcheckoutlibrary.backend;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
-import com.fastcheckoutlibrary.typecode.CountryTypeCode;
-import com.fastcheckoutlibrary.typecode.GenderTypeCode;
 import com.fastcheckoutlibrary.typecode.GenreTypeCode;
 import com.fastcheckoutlibrary.typecode.LibraryTypeCode;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -78,7 +71,8 @@ public class AdminInsertBook extends AppCompatActivity {
             String year = params[2];
             String edition = params[3];
             String genre = params[4];
-            String author = params[5];
+            String library = params[5];
+            String author = params[6];
             String data = "";
             String authorFirstName = "";
             String authorLastName = "";
@@ -99,6 +93,7 @@ public class AdminInsertBook extends AppCompatActivity {
                 urlpath += "&year=" + year;
                 urlpath += "&edition=" + edition;
                 urlpath += "&genre=" + genre;
+                urlpath += "&library=" + library;
                 URL url = new URL(urlpath);
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
