@@ -35,9 +35,9 @@ public class AdminInsertBook extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_insert_book);
 
-        bookName = (EditText) findViewById(R.id.editTextInsertInputFirstNameAuthor);
-        publisherName = (EditText) findViewById(R.id.editTextInsertInputPublisherName);
-        year = (EditText) findViewById(R.id.editTextInsertYear);
+        bookName = (EditText) findViewById(R.id.editTextAdminInsertBookName);
+        publisherName = (EditText) findViewById(R.id.editTextInsertInputBookPublisher);
+        year = (EditText) findViewById(R.id.editTextInsertBookYear);
         edition = (EditText) findViewById(R.id.editTextInsertBookEdition);
         genre = (Spinner) findViewById(R.id.spinnerNewBookGenre);
         authorName = (EditText) findViewById(R.id.editTextInsertBookAuthor);
@@ -60,7 +60,7 @@ public class AdminInsertBook extends AppCompatActivity {
         libraryValue = LibraryTypeCode.getId(library.getSelectedItem().toString());
         authorValue = authorName.getText().toString();
         AdminInsertBook.Background b = new AdminInsertBook.Background();
-        b.execute(bookNameValue, publisherNameValue, yearValue, editionValue, genreValue, authorValue);
+        b.execute(bookNameValue, publisherNameValue, yearValue, editionValue, genreValue, authorValue, libraryValue);
     }
 
     class Background extends AsyncTask<String, String, String> {
@@ -71,8 +71,8 @@ public class AdminInsertBook extends AppCompatActivity {
             String year = params[2];
             String edition = params[3];
             String genre = params[4];
-            String library = params[5];
-            String author = params[6];
+            String author = params[5];
+            String library = params[6];
             String data = "";
             String authorFirstName = "";
             String authorLastName = "";

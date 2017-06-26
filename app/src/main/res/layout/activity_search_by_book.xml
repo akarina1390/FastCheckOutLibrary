@@ -267,13 +267,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.794">
 
-        <ExpandableListView
-            android:id="@+id/GenreList"
+        <Spinner
+            android:id="@+id/spinnerSearchByBookGenreList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:cacheColorHint="@android:color/white"
             android:drawable="@android:color/white"
             android:state_pressed="true"
+            android:entries="@array/genre_arrays"
+            android:prompt="@string/genre_prompt"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp" />
     </LinearLayout>
