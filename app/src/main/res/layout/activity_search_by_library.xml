@@ -167,13 +167,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.463">
 
-        <ExpandableListView
-            android:id="@+id/LibraryCountryList"
+        <Spinner
+            android:id="@+id/spinnerSearchByLibraryCountry"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:cacheColorHint="@android:color/white"
             android:drawable="@android:color/white"
             android:state_pressed="true"
+            android:entries="@array/country_arrays"
+            android:prompt="@string/country_prompt"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp" />
     </LinearLayout>

@@ -31,7 +31,7 @@
             tools:layout_editor_absoluteY="8dp" />
 
         <ImageButton
-            android:id="@+id/imageButtonOk"
+            android:id="@+id/imageButtonReserve"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@android:color/white"
@@ -40,14 +40,11 @@
             tools:layout_editor_absoluteY="126dp" />
 
         <ImageButton
-            android:id="@+id/imageButtonCancel"
+            android:id="@+id/imageButtonInfo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.02"
             android:background="@android:color/white"
-            app:srcCompat="@android:drawable/ic_delete"
-            tools:layout_editor_absoluteX="293dp"
-            tools:layout_editor_absoluteY="92dp" />
+            app:srcCompat="@mipmap/ic_info" />
 
     </LinearLayout>
 
