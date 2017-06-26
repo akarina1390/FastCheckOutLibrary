@@ -123,6 +123,7 @@ public class SearchByAuthor extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
+            searchedBooks = new ArrayList<Book>();
             String err = null;
             try{
                 JSONArray bookArray = new JSONArray(result);
@@ -139,6 +140,7 @@ public class SearchByAuthor extends AppCompatActivity {
             }
 
             if (err == null) {
+                Book.setBookList(searchedBooks);
                 Intent myIntent = new Intent(SearchByAuthor.this, SearchResults.class);
                 startActivityForResult(myIntent, 0);
             } else {
