@@ -26,7 +26,7 @@
             android:layout_weight="1"
             android:background="@android:color/white"
             android:backgroundTint="@android:color/holo_blue_bright"
-            android:text="Create New User"
+            android:text="Create New Admin"
             android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="368dp" />
