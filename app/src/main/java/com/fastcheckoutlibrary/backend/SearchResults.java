@@ -21,7 +21,7 @@ import java.util.List;
 public class SearchResults extends AppCompatActivity {
     private static ArrayList<Book> theBookList;
     private List<String> data = new ArrayList<String>();
-    String specialBreaker = "  ";
+    String specialBreaker = ";";
 
     static void setBookList(ArrayList<Book> bookList) {
         theBookList = bookList;
@@ -34,7 +34,7 @@ public class SearchResults extends AppCompatActivity {
         setContentView(R.layout.activity_search_results);
 
         ListView lv = (ListView) findViewById(R.id.listOfResults);
-        //generateListContent(context);
+        generateListContent(ctx);
         lv.setAdapter(new MyListAdaper(this, R.layout.activity_list_of_books_results, data));
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -44,14 +44,12 @@ public class SearchResults extends AppCompatActivity {
         });
     }
 
-    private List<String> generateList() {
-        List<String> list = new ArrayList<>();
+    private void generateListContent(Context ctx) {
         /*for (Book book : theBookList) {
             list.add(book.getId() + specialBreaker + book.getName() + specialBreaker + book.getEdition()
             + specialBreaker + book.getLibraryName() + specialBreaker + book.getAddressName());
         }*/
-        list.add("Sonny");
-        return list;
+        data.add("Sonny");
     }
 
     private class MyListAdaper extends ArrayAdapter<String> {
