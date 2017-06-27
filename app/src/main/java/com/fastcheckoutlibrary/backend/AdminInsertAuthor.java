@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
+import com.fastcheckoutlibrary.objects.IP;
 import com.fastcheckoutlibrary.typecode.CountryTypeCode;
 import com.fastcheckoutlibrary.typecode.GenderTypeCode;
 
@@ -79,7 +80,9 @@ public class AdminInsertAuthor extends AppCompatActivity {
             int tmp;
 
             try {
-                String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/insertAuthor.php?";
+                String urlpath = "http://";
+                urlpath += IP.getIP();
+                urlpath +=":8080/CPSC471/FastCheckOutLibrary/insertAuthor.php?";
                 urlpath += "firstname=" + firstname;
                 urlpath += "&lastname=" + lastname;
                 urlpath += "&gender=" + gender;

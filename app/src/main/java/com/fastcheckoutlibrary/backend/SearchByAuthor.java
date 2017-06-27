@@ -26,6 +26,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
+import com.fastcheckoutlibrary.objects.IP;
 import com.fastcheckoutlibrary.typecode.CountryTypeCode;
 import com.fastcheckoutlibrary.typecode.GenderTypeCode;
 import com.fastcheckoutlibrary.objects.Book;
@@ -85,7 +86,9 @@ public class SearchByAuthor extends AppCompatActivity {
             int tmp;
 
             try {
-                String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/searchbyauthor.php?";
+                String urlpath = "http://";
+                urlpath += IP.getIP();
+                urlpath += ":8080/CPSC471/FastCheckOutLibrary/searchbyauthor.php?";
                 urlpath += "firstname=" + firstName;
                 urlpath += "&lastname=" + lastName;
                 urlpath += "&gender=" + gender;

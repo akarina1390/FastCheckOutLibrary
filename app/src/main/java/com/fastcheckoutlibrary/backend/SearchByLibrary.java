@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
 import com.fastcheckoutlibrary.objects.Book;
+import com.fastcheckoutlibrary.objects.IP;
 import com.fastcheckoutlibrary.typecode.CountryTypeCode;
 
 import org.json.JSONArray;
@@ -73,7 +74,9 @@ public class SearchByLibrary extends AppCompatActivity {
             int tmp;
 
             try {
-                String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/searchbylibrary.php?";
+                String urlpath = "http://";
+                urlpath += IP.getIP();
+                urlpath += ":8080/CPSC471/FastCheckOutLibrary/searchbylibrary.php?";
                 urlpath += "libraryname=" + name;
                 urlpath += "&address=" + address;
                 urlpath += "&country=" + country;

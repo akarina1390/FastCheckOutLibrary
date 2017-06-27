@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
+import com.fastcheckoutlibrary.objects.IP;
 import com.fastcheckoutlibrary.typecode.CountryTypeCode;
 
 import org.json.JSONException;
@@ -65,7 +66,9 @@ public class AdminInsertPublisher extends AppCompatActivity {
             int tmp;
 
             try {
-                String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/insertPublisher.php?";
+                String urlpath = "http://";
+                urlpath += IP.getIP();
+                urlpath += ":8080/CPSC471/FastCheckOutLibrary/insertPublisher.php?";
                 urlpath += "publishername=" + publishername;
                 urlpath += "&country=" + country;
                 URL url = new URL(urlpath);

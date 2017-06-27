@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
+import com.fastcheckoutlibrary.objects.IP;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -70,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
             int tmp;
 
             try {
-                String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/login.php?";
+                String urlpath = "http://";
+                urlpath += IP.getIP();
+                urlpath += ":8080/CPSC471/FastCheckOutLibrary/login.php?";
                 urlpath += "username=" + userName;
                 urlpath += "&password=" + password;
                 URL url = new URL(urlpath);
