@@ -25,10 +25,10 @@ public class SearchResults extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
 
+        //Testing Set
         Book testBook = new Book("TestID", "TestName", "TestEdition", "TestLib", "TestAddr");
         Book testBook1 = new Book("TestID1", "TestName1", "TestEdition1", "TestLib1", "TestAddr1");
         Book testBook2 = new Book("TestID2", "TestName2", "TestEdition2", "TestLib2", "TestAddr2");
-
         ArrayList<Book> testSet = new ArrayList<Book>();
         testSet.add(testBook);
         testSet.add(testBook1);
@@ -37,14 +37,12 @@ public class SearchResults extends AppCompatActivity {
 
         theBookList = Book.getList();
 
-        resultList = (ExpandableListView)findViewById(R.id.ListOfResults);
-
-        prepareListData();
-
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-
-        resultList.setAdapter(listAdapter);
-
+        if (theBookList.size() != 0){
+            resultList = (ExpandableListView)findViewById(R.id.ListOfResults);
+            prepareListData();
+            listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+            resultList.setAdapter(listAdapter);
+        }
     }
 
     /*
@@ -54,7 +52,7 @@ public class SearchResults extends AppCompatActivity {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, ArrayList<String>>();
 
-        // Adding header data
+        // Adding header and child data
         for(int i = 0; i < theBookList.size(); i++){
             listDataHeader.add(theBookList.get(i).getName());
             ArrayList<String> bookDetails = new ArrayList<String>();

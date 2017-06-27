@@ -7,7 +7,9 @@ public class Book {
     private static ArrayList<Book> bookList = new ArrayList<Book>();
 
     public static  void setBookList(ArrayList<Book> theList) {
-        ArrayList<Book> bookList = new ArrayList<Book>(theList);
+        for (Book aBook : theList) {
+            bookList.add(aBook);
+        }
     }
 
     public static ArrayList<Book> getList(){
