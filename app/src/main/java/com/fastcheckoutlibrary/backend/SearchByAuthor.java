@@ -90,7 +90,7 @@ public class SearchByAuthor extends AppCompatActivity {
             int tmp;
 
             try {
-                String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/login.php?";
+                String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/searchbyauthor.php?";
                 urlpath += "firstname=" + firstName;
                 urlpath += "&lastname=" + lastName;
                 urlpath += "&gender=" + gender;
