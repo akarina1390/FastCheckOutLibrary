@@ -51,7 +51,7 @@ public class AdminView extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        newPublisher = (Button) findViewById(R.id.buttonInsertPublisher);
+        newPublisher = (Button) findViewById(R.id.buttonInsertNewPublisher);
         newPublisher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

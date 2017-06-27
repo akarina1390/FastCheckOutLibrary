@@ -60,7 +60,7 @@ public class AdminInsertPublisher extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             String publishername = params[0];
-            String country = params[2];
+            String country = params[1];
             String data = "";
             int tmp;
 

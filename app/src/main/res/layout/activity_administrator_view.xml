@@ -112,7 +112,7 @@
         app:layout_constraintVertical_bias="0.803">
 
         <Button
-            android:id="@+id/buttonInsertPublisher"
+            android:id="@+id/buttonInsertNewPublisher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
