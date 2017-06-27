@@ -115,12 +115,9 @@ public class MainActivity extends AppCompatActivity {
             if (err == null) {
                 if (PRIVILEDGE_ID.equals("1")) {
                     Intent intent = new Intent(ctx, AdminView.class);
-                    //intent.putExtra("ID", ID);
                     startActivity(intent);
                 } else if (PRIVILEDGE_ID.equals("2")) {
                     Intent intent = new Intent(ctx, AdminView.class);
-                    //Intent intent = new Intent(ctx, UserView.class);
-                    //intent.putExtra("ID", ID);
                     startActivity(intent);
                 } else {
                     Toast.makeText(ctx, "Error Login in", Toast.LENGTH_SHORT).show();

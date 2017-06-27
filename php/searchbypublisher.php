@@ -1,6 +1,7 @@
 <?php 
 error_reporting(0);
 require "init.php";
+require_once "book.php";
 
 $publishername = $_GET["publishername"];
 $country = $_GET["country"];
@@ -9,8 +10,11 @@ $sql = "SELECT BOOK.ID, BOOK.NAME, BOOK.EDITION, LIBRARY.NAME LIBRARY_NAME, LIBR
 
 $result = mysqli_query($con, $sql);
 $response = array();
+
 while($row = mysqli_fetch_array($result)){
-	$response[] = array("bookid"=>$row[0],"bookname"=>$row[1],"bookedition"=>$row[2],"libraryname"=>$row[3],"libraryaddress"=>$row[4]);
+    $book = new Book($row[0], $row[1], $row[2], $row[3], $row[4]);
+    $response[] = $book;
 }
-echo json_encode(array("user_data"=>$response));
+
+echo json_encode($response);
 ?>

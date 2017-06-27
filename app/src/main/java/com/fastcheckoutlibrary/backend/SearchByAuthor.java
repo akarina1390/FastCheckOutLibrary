@@ -37,10 +37,7 @@ public class SearchByAuthor extends AppCompatActivity {
     private RadioButton maleSwitch;
     private Button searchAuthor;
     private Spinner countryList;
-    private RadioGroup genderGroup, deathGroup;
-
-    private String bookName, bookEdition, bookLocation;
-    private int bookQuantity;
+    private RadioGroup genderGroup;
 
     private ArrayList<Book> searchedBooks;
 
@@ -54,22 +51,20 @@ public class SearchByAuthor extends AppCompatActivity {
 
         authorfirstName = (EditText) findViewById(R.id.editTextSearchInputFirstNameAuthor);
         authorlastName = (EditText) findViewById(R.id.editTextSearchInputLastNameAuthor);
+        genderGroup = (RadioGroup) findViewById(R.id.radioGroupAuthorGender);
         maleSwitch = (RadioButton) findViewById(R.id.radioButtonSearchM);
         countryList = (Spinner) findViewById(R.id.editTextAuthorCountry);
 
-        searchAuthor = (Button) findViewById(R.id.buttonSearchAuthor);
+        searchAuthor = (Button) findViewById(R.id.buttonSearchBookByAuthor);
         searchAuthor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setSearch(v);
+                search(v);
             }
         });
     }
 
-    ;
-
-
-    public void setSearch(View v) {
+    public void search(View v) {
         firstnameValue = authorfirstName.getText().toString();
         lastnameValue = authorlastName.getText().toString();
         genderValue = genderGroup.getCheckedRadioButtonId() == maleSwitch.getId() ?
@@ -123,28 +118,28 @@ public class SearchByAuthor extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            searchedBooks = new ArrayList<Book>();
-            String err = null;
-            try{
-                JSONArray bookArray = new JSONArray(result);
-                JSONObject JSONbookObject;
-                for(int i = 0; i < bookArray.length(); i++){
-                    JSONbookObject = bookArray.getJSONObject(i);
-                    Book insertBook = new Book(JSONbookObject.getString("id"), JSONbookObject.getString("bookname"), JSONbookObject.getString("bookedition"),
-                            JSONbookObject.getString("libraryname"), JSONbookObject.getString("libraryaddress"));
-                    searchedBooks.add(insertBook);
+            ArrayList<Book> list = new ArrayList<>();
+            try {
+                JSONArray jsonarray = new JSONArray(result);
+                if (jsonarray.length() == 0) {
+                    Toast.makeText(ctx, "No Data Found", Toast.LENGTH_SHORT).show();
+                } else {
+                    for (int i = 0; i < jsonarray.length(); i++) {
+                        JSONObject jsonobject = jsonarray.getJSONObject(i);
+                        String id = jsonobject.getString("id");
+                        String bookname = jsonobject.getString("bookname");
+                        String bookedition = jsonobject.getString("bookedition");
+                        String libraryname = jsonobject.getString("libraryname");
+                        String libraryaddress = jsonobject.getString("libraryaddress");
+                        Book book = new Book(id, bookname, bookedition, libraryname, libraryaddress);
+                        list.add(book);
+                    }
+                    SearchResults.setBookList(list);
+                    Intent intent = new Intent(ctx, SearchResults.class);
+                    startActivity(intent);
                 }
             } catch (JSONException e) {
-                e.printStackTrace();
-                err = "Exception obtaining database result";
-            }
-
-            if (err == null) {
-                Book.setBookList(searchedBooks);
-                Intent myIntent = new Intent(SearchByAuthor.this, SearchResults.class);
-                startActivityForResult(myIntent, 0);
-            } else {
-                Toast.makeText(ctx, "Error Login in", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, "Error Searching by Publisher", Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.fastcheckoutlibrary.backend;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,41 +10,43 @@ import android.widget.Button;
 import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
 
 public class UserSearchMainMenu extends AppCompatActivity {
+    Context ctx = this;
+    Button searchBook, searchAuthor, searchPublisher, searchLibrary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_search_main_menu);
 
-        Button searchBook = (Button) findViewById(R.id.buttonSearchBook);
+        searchBook = (Button) findViewById(R.id.buttonSearchByBook);
         searchBook.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), SearchByBook.class);
-                startActivityForResult(myIntent, 0);
+                Intent intent = new Intent(ctx, SearchByBook.class);
+                startActivity(intent);
             }
         });
 
-        Button searchAuthor = (Button) findViewById(R.id.buttonSearchAuthor);
+        searchAuthor = (Button) findViewById(R.id.buttonSearchByAuthor);
         searchAuthor.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), SearchByAuthor.class);
-                startActivityForResult(myIntent, 0);
+                Intent intent = new Intent(ctx, SearchByAuthor.class);
+                startActivity(intent);
             }
         });
 
-        Button searchPublisher = (Button) findViewById(R.id.buttonSearchPublisher);
+        searchPublisher = (Button) findViewById(R.id.buttonSearchByPublisher);
         searchPublisher.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), SearchByPublisher.class);
-                startActivityForResult(myIntent, 0);
+                Intent intent = new Intent(ctx, SearchByPublisher.class);
+                startActivity(intent);
             }
         });
 
-        Button searchLibrary = (Button) findViewById(R.id.buttonSearchLibrary);
+        searchLibrary = (Button) findViewById(R.id.buttonSearchByLibrary);
         searchLibrary.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), SearchByLibrary.class);
-                startActivityForResult(myIntent, 0);
+                Intent intent = new Intent(ctx, SearchByLibrary.class);
+                startActivity(intent);
             }
         });
     }

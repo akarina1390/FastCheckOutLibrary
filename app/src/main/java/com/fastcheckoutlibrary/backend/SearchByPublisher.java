@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
+import com.fastcheckoutlibrary.objects.Book;
 import com.fastcheckoutlibrary.typecode.CountryTypeCode;
 
 import org.json.JSONArray;
@@ -24,6 +25,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class SearchByPublisher extends AppCompatActivity {
     private EditText newName;
@@ -32,9 +34,7 @@ public class SearchByPublisher extends AppCompatActivity {
 
     private String newNameValue, newCountryValue, newSearchValue;
 
-    private String ID, NAME, AUTHORD_ID, PUBLISHER_ID, YEAR, EDITION, GENRE_ID;
     Context ctx = this;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,6 @@ public class SearchByPublisher extends AppCompatActivity {
     }
 
     private void search(View v) {
-
         newNameValue = newName.getText().toString();
         newCountryValue =  CountryTypeCode.getId(newCountry.getSelectedItem().toString());
 
@@ -72,7 +71,7 @@ public class SearchByPublisher extends AppCompatActivity {
 
             try {
                 String urlpath = "http://192.168.86.100:8080/CPSC471/FastCheckOutLibrary/searchByPublisher.php?";
-                urlpath += "name=" + name;
+                urlpath += "publishername=" + name;
                 urlpath += "&country=" + country;
 
                 URL url = new URL(urlpath);
@@ -103,47 +102,29 @@ public class SearchByPublisher extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            String err = null;
+            ArrayList<Book> list = new ArrayList<>();
             try {
-                JSONArray json = new JSONArray(result);
-                for (int i = 0; i < json.length(); i++)
-                {
-                    JSONArray array = json.getJSONArray(i);
-                    for (int j = 0; j<array.length();i++)
-                    {
-                        JSONObject obj = array.getJSONObject(i);
-                        //create Book object here
-                        /*
-                            //these would be parameters to the book object?
-                            ID = user_data.getString("id");
-                            NAME = user_data.getString("name");
-                            AUTHORD_ID = user_data.getString("author_id");
-                            PUBLISHER_ID = user_data.getString("publisher_id");
-                            YEAR = user_data.getString("year");
-                            EDITION = user_data.getString("edition");
-                            GENRE_ID = user_data.getString("genre_id");
-                            Book book = new book (ID, AUTHOR_ID, ...);
-                         */
+                JSONArray jsonarray = new JSONArray(result);
+                if (jsonarray.length() == 0) {
+                    Toast.makeText(ctx, "No Data Found", Toast.LENGTH_SHORT).show();
+                } else {
+                    for (int i = 0; i < jsonarray.length(); i++) {
+                        JSONObject jsonobject = jsonarray.getJSONObject(i);
+                        String id = jsonobject.getString("id");
+                        String bookname = jsonobject.getString("bookname");
+                        String bookedition = jsonobject.getString("bookedition");
+                        String libraryname = jsonobject.getString("libraryname");
+                        String libraryaddress = jsonobject.getString("libraryaddress");
+                        Book book = new Book(id, bookname, bookedition, libraryname, libraryaddress);
+                        list.add(book);
                     }
+                    SearchResults.setBookList(list);
+                    Intent intent = new Intent(ctx, SearchResults.class);
+                    startActivity(intent);
                 }
             } catch (JSONException e) {
-                e.printStackTrace();
-                err = "Exception obtaining database result";
-            }
-
-            //this if-else was copied from NewUserAccount.java, not sure what to put here
-            if (err == null) {
-                if (true /*INSERTED*/) {
-                    Intent intent = new Intent(ctx, ListOfBooksResults.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(ctx, "Error Searching by Publisher", Toast.LENGTH_SHORT).show();
-                }
-            }
-            else {
                 Toast.makeText(ctx, "Error Searching by Publisher", Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 }
