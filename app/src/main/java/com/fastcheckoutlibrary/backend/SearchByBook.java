@@ -33,7 +33,7 @@ public class SearchByBook extends AppCompatActivity {
     private Button buttonSearchBook;
     private EditText bookName, bookPublisher, bookYear, bookEdition;
     private Spinner bookGenre;
-    private Context ctx;
+    private Context ctx = this;
 
     private String bookNameValue, bookPublisherValue, bookYearValue, bookEditionValue, bookGenreValue;
 
@@ -73,7 +73,8 @@ public class SearchByBook extends AppCompatActivity {
             String bookname = params[0];
             String publishername = params[1];
             String bookyear = params[2];
-            String genre = params[3];
+            String edition = params[3];
+            String genre = params[4];
             String data = "";
             int tmp;
 
@@ -83,6 +84,7 @@ public class SearchByBook extends AppCompatActivity {
                 urlpath += "&publishername=" + publishername;
                 urlpath += "&bookyear=" + bookyear;
                 urlpath += "&genre=" + genre;
+                urlpath += "&edition=" + edition;
 
                 URL url = new URL(urlpath);
 

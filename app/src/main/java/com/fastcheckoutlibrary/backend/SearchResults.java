@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.anakarinacarrocci.fastcheckoutlibrary.R;
 import com.fastcheckoutlibrary.objects.Book;
@@ -45,11 +46,10 @@ public class SearchResults extends AppCompatActivity {
     }
 
     private void generateListContent(Context ctx) {
-        /*for (Book book : theBookList) {
-            list.add(book.getId() + specialBreaker + book.getName() + specialBreaker + book.getEdition()
+        for (Book book : theBookList) {
+            data.add(book.getId() + specialBreaker + book.getName() + specialBreaker + book.getEdition()
             + specialBreaker + book.getLibraryName() + specialBreaker + book.getAddressName());
-        }*/
-        data.add("Sonny");
+        }
     }
 
     private class MyListAdaper extends ArrayAdapter<String> {
@@ -65,29 +65,36 @@ public class SearchResults extends AppCompatActivity {
         @Override
         public View getView(final int index, View convertView, ViewGroup parent) {
             ViewHolder mainViewholder = null;
+            String id = getItem(index).split(specialBreaker)[0];
+            String name = getItem(index).split(specialBreaker)[1];
+            String edition = getItem(index).split(specialBreaker)[2];
+            final String libName = getItem(index).split(specialBreaker)[3];
+            final String address = getItem(index).split(specialBreaker)[4];
+
             if (convertView == null) {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout, parent, false);
                 ViewHolder viewHolder = new ViewHolder();
                 viewHolder.title = (TextView) convertView.findViewById(R.id.listItemText);
-                //viewHolder.delete = (ImageButton) convertView.findViewById(R.id.imageButtonDeleteItem);
+                viewHolder.reserve = (ImageButton) convertView.findViewById(R.id.imageButtonReserve);
+                viewHolder.info = (ImageButton) convertView.findViewById(R.id.imageButtonInfo);
                 convertView.setTag(viewHolder);
             }
             mainViewholder = (ViewHolder) convertView.getTag();
-            /*mainViewholder.delete.setOnClickListener(new View.OnClickListener() {
+            mainViewholder.reserve.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (deleteRecord(data.get(index))) {
-                        Toast.makeText(getContext(), "Item has been successfully removed", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getContext(), HomeFlashCard.class);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(getContext(), "Item has been not been removed", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(getContext(), "Logic not implemented - but update statement was intended", Toast.LENGTH_SHORT).show();
                 }
-            });*/
+            });
+            mainViewholder.info.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getContext(), "The book is available at: " + libName + ". Address: " + address, Toast.LENGTH_LONG).show();
+                }
+            });
 
-            mainViewholder.title.setText(getItem(index));
+            mainViewholder.title.setText(name + " - Edition: " + edition);
 
             return convertView;
         }
